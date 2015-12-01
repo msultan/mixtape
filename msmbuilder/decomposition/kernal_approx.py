@@ -11,6 +11,6 @@ from .base import MultiSequenceDecompositionMixin
 
 __all__ = ['Nystroem']
 
+
 class Nystroem(MultiSequenceDecompositionMixin, Nystroem):
     __doc__ = Nystroem.__doc__
-
