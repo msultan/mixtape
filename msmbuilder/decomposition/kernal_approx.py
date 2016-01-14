@@ -14,3 +14,5 @@ __all__ = ['Nystroem']
 
 class Nystroem(MultiSequenceDecompositionMixin, Nystroem):
     __doc__ = Nystroem.__doc__
+
+class LandmarkNystroem(Nystroem):
