@@ -129,6 +129,8 @@ class BayesianMarkovStateModel(BaseEstimator, _MappingTransformMixin,
         Samples from the posterior ensemble of transition matrices.
     map_ll : int
         The MAP(maximum a posteriori probability) logliklihood
+    all_logliklihoods_: array_like, shape = (n_samples)
+        The log liklihoods for all the generated mdls
     map_transmat_ :  array_like, shape = (n_states_, n_states_)
         The map transition matrix
     map_population_ :  array_like, shape = (n_states_, n_states_)
@@ -248,7 +250,10 @@ class BayesianMarkovStateModel(BaseEstimator, _MappingTransformMixin,
 
         self.all_logliklihoods_ = [_logprob_T(i,Z) for i in result]
         self.map_ll_ = np.mean(self.all_logliklihoods_)
+        #find the mdl index ll is closest to the mean of the mdls.
         self.map_mdl_index_ = np.argmin(self.all_logliklihoods_ - self.map_ll_)
+
+        self.map_ll_ = self.all_logliklihoods_[self.map_mdl_index_]
         self.map_transmat_ = result[self.map_mdl_index_]
 
         return result
