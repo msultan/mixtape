@@ -248,7 +248,7 @@ class BayesianMarkovStateModel(BaseEstimator, _MappingTransformMixin,
         # samples.
         result = result[-self.n_samples:]
 
-        self.all_loglikelihoods_ = np.array([_logprob_T(i,Z) for i in result])
+        self.all_loglikelihoods_ = np.array([_logprob_T(i, Z) for i in result])
         self.map_ll_ = np.mean(self.all_loglikelihoods_)
         #find the mdl index ll is closest to the mean of the mdls.
         self.map_mdl_index_ = np.argmin(self.all_loglikelihoods_ - self.map_ll_)
@@ -408,5 +408,5 @@ Timescales:
         return lvs[:, :, 0]
 
     @property
-    def map_population_(self):
+    def map_populations_(self):
         return self.all_populations_[self.map_mdl_index_]
