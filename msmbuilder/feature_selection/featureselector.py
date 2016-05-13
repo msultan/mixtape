@@ -66,7 +66,7 @@ class FeatureSelector(Featurizer):
         return np.concatenate([self.features[feat].partial_transform(traj)
                                for feat in self.which_feat], axis=1)
     def describe_features(self, traj):
-         """ Return a list of dictionaries describing the features. Follows
+        """ Return a list of dictionaries describing the features. Follows
         the ordering of featurizers in self.which_feat. 
 
         Parameters
@@ -87,7 +87,6 @@ class FeatureSelector(Featurizer):
                 - featurizer: featurizer dependent 
                 - featuregroup: other info for the featurizer 
         """
-
         all_res=[]
         for feat in self.which_feat:
             all_res.extend(self.features[feat].describe_features(traj))
