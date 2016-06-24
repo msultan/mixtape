@@ -5,8 +5,9 @@ import glob
 import os
 from scipy.stats import vonmises as vm
 
+
 from mdtraj.testing import eq 
-from msmbuilder.example_datasets import fetch_fs_peptide,FsPeptide
+from msmb_data import fetch_fs_peptide,FsPeptide
 from msmbuilder.featurizer import DihedralFeaturizer, AlphaAngleFeaturizer,\
     KappaAngleFeaturizer,ContactFeaturizer,VonMisesFeaturizer
 from msmbuilder.feature_selection import FeatureSelector
@@ -206,5 +207,4 @@ def test_FeatureSelector_describe_features():
     for i in np.random.choice(range(len(df3)), 40):
         for j in df3.columns:
             assert eq(df3.iloc[i][j],df4.iloc[i][j])
-
 
