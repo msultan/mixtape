@@ -88,14 +88,16 @@ class BootStrapMarkovStateModel(_MappingTransformMixin):
     >>> bmsm = BootStrapMarkovStateModel(n_samples=800,
                     msm_args={'lag_time':1})
     """
-    def __init__(self, n_samples=10,  n_procs=None, msm_args={}):
+    def __init__(self, n_samples=10,  n_procs=None, save_all_mdls = False, msm_args={}):
         self.n_samples = n_samples
         self.n_procs = n_procs
         self.msm_args = msm_args
         self.mle_ = MarkovStateModel(**self.msm_args)
+        self.save_all_mdls = save_all_mdls
 
         self._succesfully_fit = 0
         self._ommitted_trajs_ = None
+        self.all_mdls = None
         self.all_populations_ = None
         self.mapped_populations_ = None
         self.all_training_scores_ = None
@@ -155,6 +157,9 @@ class BootStrapMarkovStateModel(_MappingTransformMixin):
                     self.all_test_scores_.append(mdl.score(test_jbs[mdl_indx]))
                 except ValueError:
                     self.all_test_scores_.append(np.nan)
+
+        if self.save_all_mdls:
+            self.all_mdls = all_mdls
 
         return
 
