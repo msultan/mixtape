@@ -164,7 +164,7 @@ class BootStrapMarkovStateModel(_MappingTransformMixin):
                     self.all_test_scores_.append(np.nan)
 
         if self.save_all_models:
-            self.all_models = all_mdls
+            self.all_models = all_models
 
     @property
     def mapped_populations_mean_(self):
