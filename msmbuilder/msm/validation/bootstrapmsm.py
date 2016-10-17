@@ -32,6 +32,9 @@ class BootStrapMarkovStateModel(_MappingTransformMixin):
     msm_args: dict
         Dictionary containing arguments to pass unto
         the MSM models.
+    save_all_models: boolean
+        Whether or not to save all the models.
+        Defaults to false.
 
     Attributes
     ----------
