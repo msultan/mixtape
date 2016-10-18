@@ -125,6 +125,7 @@ class BootStrapMarkovStateModel(_MappingTransformMixin):
 
         self.all_populations_ = []
         self.mapped_populations_ = np.zeros((self.n_samples, self.mle_.n_states_))
+        self.mapped_populations_[:,:] = np.nan
         self.all_training_scores_ = []
         self.all_test_scores_ = []
 
