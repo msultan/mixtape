@@ -91,7 +91,7 @@ class BootStrapMarkovStateModel(_MappingTransformMixin):
     >>> bmsm = BootStrapMarkovStateModel(n_samples=800,
                     msm_args={'lag_time':1})
     """
-    def __init__(self, n_samples=10,  n_procs=None, msm_args={}, save_all_models = False):
+    def __init__(self, n_samples=10,  n_procs=None, msm_args=None, save_all_models = False):
         self.n_samples = n_samples
         self.n_procs = n_procs
         if msm_args is None:
