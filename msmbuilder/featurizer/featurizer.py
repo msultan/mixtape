@@ -411,6 +411,7 @@ class AtomPairsFeaturizer(Featurizer):
         feature_descs.extend(dict_maker(zippy))
         return feature_descs
 
+
 class FunctionFeaturizer(Featurizer):
     """Featurizer based on arbitrary functions.
 
